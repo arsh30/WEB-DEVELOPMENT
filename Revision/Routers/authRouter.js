@@ -178,10 +178,11 @@ async function resetPassword(req, res) {
       //     // }, { runValidators: true })
 
       // }
-      user.password = password;
-      user.confirmPassword = confirmPassword;
-      user.token = undefined;
-      await user.save();
+
+      // user.password = password;  comment this and do in update user function(user router)
+      // user.confirmPassword = confirmPassword;
+      // user.token = undefined;
+      // await user.save();
 
       let newUser = await userModel.findOne({ email: user.email });
       res.status(200).json({
